@@ -11,6 +11,7 @@
         aria-label="menu"
         aria-expanded="false"
         data-target="navbarBasicExample"
+        @click="menuToggle"
       >
         <span aria-hidden="true"></span>
         <span aria-hidden="true"></span>
@@ -18,7 +19,7 @@
       </a>
     </div>
 
-    <div id="navbarBasicExample" class="navbar-menu">
+    <div id="navbarBasicExample" class="navbar-menu" :class="{ 'is-active': menuActive }">
       <div class="navbar-start">
         <a class="navbar-item">Home</a>
         
@@ -50,3 +51,17 @@
     </div>
   </nav>
 </template>
+<script>
+export default {
+  data() {
+    return {
+      menuActive: false
+    }
+  },
+  methods: {
+    menuToggle() {
+      this.menuActive = !this.menuActive
+    }
+  }
+}
+</script>
